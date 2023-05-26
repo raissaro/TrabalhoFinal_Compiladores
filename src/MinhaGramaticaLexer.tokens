@@ -1,0 +1,14 @@
+TIPO=1
+ATRIB=2
+AP=3
+FP=4
+LER=5
+ESC=6
+QP=7
+IGNORA=8
+'->'=2
+'('=3
+')'=4
+'READ'=5
+'WRITE'=6
+'::'=7
