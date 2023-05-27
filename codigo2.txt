@@ -1,0 +1,23 @@
+-- Calcula se o número é par. --
+FUNCTION verificaPar(int num) bool:
+    IF(num % 2 == 0):
+        RETURN TRUE;
+    END
+    ELSE:
+        RETURN FALSE;
+    END
+END
+
+
+int numero 
+WRITE:: "Digite um numero: ";
+READ:: numero;
+bool ehPar -> verificaPar(numero);
+
+
+IF(ehPar):
+    WRITE:: "O numero e par";
+END
+ELSE:
+    WRITE:: "O numero e impar";
+END

@@ -1,0 +1,81 @@
+-- 3 números em ordem --
+FUNCTION ordenarNumeros(num1, num2, num3, ordem) void:
+    IF (ordem == #crescente#):
+        IF (num1 > num2):
+            temp -> num1;
+            num1 -> num2;
+            num2 -> temp;
+        END
+        IF (num2 > num3):
+            temp -> num2;
+            num2 -> num3;
+            num3 -> temp;
+        END
+        IF (num1 > num2):
+            temp -> num1;
+            num1 -> num2;
+            num2 -> temp;
+        END
+    END
+    ELSEIF (ordem == #decrescente#):
+        IF (num1 < num2):
+            temp -> num1;
+            num1 -> num2;
+            num2 -> temp;
+        END
+        IF (num2 < num3):
+            temp -> num2;
+            num2 -> num3;
+            num3 -> temp;
+        END
+        IF (num1 < num2):
+            temp -> num1;
+            num1 -> num2;
+            num2 -> temp;
+        END
+    END
+
+
+    WRITE::"Os numeros em ordem", ordem, "sao:", num1," " ,num2," ", num3;
+
+
+END
+
+
+FUNCTION MAIN() int:
+
+
+    WRITE:: "Digite os tres numeros que deseja ordenar";
+    int num1;
+    READ::num1;
+
+
+    int num2;
+    READ::num2;
+
+
+    int num3;
+    READ::num3;
+
+
+    WRITE:: "Escolha a ordem que deseja, digite o numero correspondente: 1-crescente, 2-decrescente";
+    int ordemNum;
+    READ::ordemNum;
+
+
+    str ordem;
+
+
+    IF(ordemNum == 1):
+        ordem -> #crescente#;
+    END
+    ELSEIF(ordemNum == 2):
+        ordem -> #decrescente#;
+    END
+
+
+    ordenarNumeros(num1, num2, num3, ordem);
+
+
+    RETURN 0;
+END

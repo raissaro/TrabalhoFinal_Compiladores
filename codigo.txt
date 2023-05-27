@@ -1,20 +1,28 @@
-DEFINE PI -> 3,14159;
-FUNCTION calcularVolumeEsfera(float raio) float:
-   float volume -> (4/3) * PI * (raio ^ 3);
-   RETURN volume;
+-- Algoritmo de Fibonacci--
+FUNCTION fibonacci(int n) int:
+    IF(n <= 0):
+        RETURN 0;
+    END
+    ELSEIF(n == 1):
+        RETURN 1;
+    END
+    ELSE:
+        RETURN fibonacci(n - 1) + fibonacci(n - 2);
+    END
 END
 
 
 FUNCTION MAIN() int:
-   float raio;
-   WRITE:: “Digite o raio da esfera”;
-   READ:: raio;
 
 
-   float volume -> calcularVolumeEsfera(raio);
+    WRITE:: "Digite um numero: ";
+    int num;
+    READ:: num;
+    int resultadoFibonacci -> fibonacci(num);
 
 
-   WRITE:: “O volume da esfera é”, raio;
-  
-RETURN 0;
+    WRITE:: "O termo ", num, " da sequencia de Fibonacci e: ", resultadoFibonacci;
+
+
+    RETURN 0;
 END

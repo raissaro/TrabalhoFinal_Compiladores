@@ -1,0 +1,13 @@
+--Definir maior idade--
+FUNCTION MAIN() int:
+    WRITE:: "Digite sua idade: ";
+    int idade;
+    READ:: idade;
+    IF(idade >= 18):
+        WRITE:: "Voce e maior de idade";
+    END
+    ELSE:
+    WRITE:: "Voce e menor de idade";
+    END
+    RETURN 0;
+END

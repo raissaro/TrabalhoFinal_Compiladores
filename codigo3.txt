@@ -1,0 +1,62 @@
+--Obter o nome do mês do calendário palauano de acordo com o número--
+FUNCTION obterMes(int mes) string:
+   string nomeMes;
+
+   IF (mes == 1):
+       nomeMes -> #Dil#;
+   END
+   ELSEIF (mes == 2):
+       nomeMes -> #Tteel#;
+   END
+   ELSEIF (mes == 3):
+       nomeMes -> #Maltel#;
+   END
+   ELSEIF (mes == 4):
+       nomeMes -> #Beluuch#;
+   END
+   ELSEIF (mes == 5):
+       nomeMes -> #Omlebukel#;
+   END
+   ELSEIF (mes == 6):
+       nomeMes -> #Mekedengel#;
+   END
+   ELSEIF (mes == 7):
+       nomeMes -> #Dungulbeluu#;
+   END
+   ELSEIF (mes == 8):
+       nomeMes -> #Bais#;
+   END
+   ELSEIF (mes == 9):
+       nomeMes -> #Rechuodel#;
+   END
+   ELSEIF (mes == 10):
+       nomeMes -> #Nguchebelau#;
+   END
+   ELSEIF (mes == 11):
+       nomeMes -> #Ngasech#;
+   END
+   ELSEIF (mes == 12):
+       nomeMes -> #Rerengebukel#;
+   END
+   ELSE:
+       nomeMes -> #Mes Invalido#;
+   END
+  
+   RETURN nomeMes;
+END
+
+
+FUNCTION MAIN() int:
+   int mes;
+
+
+   WRITE:: "Digite um numero de 1 a 12 para obter um mes do calendario palauano";
+   READ:: mes;
+
+
+   string nomeMes -> FUNCTION obterMes(mes);
+   WRITE:: "O mes ", mes, " e ", nomeMes;
+
+
+   RETURN 0; 
+END
