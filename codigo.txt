@@ -13,15 +13,14 @@ END
 
 
 FUNCTION MAIN() int:
-
-
-    WRITE:: "Digite um numero: ";
+    WRITE:: "digite um numero: ";
     int num;
     READ:: num;
-    int resultadoFibonacci -> fibonacci(num);
+    int resultadoFibonacci;
+    resultadoFibonacci -> fibonacci(num);
 
 
-    WRITE:: "O termo ", num, " da sequencia de Fibonacci e: ", resultadoFibonacci;
+    WRITE:: "o termo ", num, " da sequencia de Fibonacci e: ", resultadoFibonacci;
 
 
     RETURN 0;

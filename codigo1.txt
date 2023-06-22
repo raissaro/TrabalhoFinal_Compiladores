@@ -1,10 +1,12 @@
 --Calcular o volume de uma esfera--
-DEFINE PI -> 3.14159;
-FUNCTION calcularVolumeEsfera(float raio) float:
-   float volume -> (4/3) * PI * (raio ^ 3);
+
+FUNCTION calcularVolumeEsfera(float raio) float:   
+   float pi;
+   pi -> 3.14159;
+   float volume;
+   volume -> (4/3) * pi * (raio ^ 3);
    RETURN volume;
 END
-
 
 FUNCTION MAIN() int:
    float raio;
@@ -12,7 +14,8 @@ FUNCTION MAIN() int:
    READ:: raio;
 
 
-   float volume -> calcularVolumeEsfera(raio);
+   float volume; 
+   volume -> calcularVolumeEsfera(raio);
 
 
    WRITE::"O volume da esfera e" raio;

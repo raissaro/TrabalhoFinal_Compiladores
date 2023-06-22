@@ -1,6 +1,6 @@
 -- 3 números em ordem --
 FUNCTION ordenarNumeros(num1, num2, num3, ordem) void:
-    IF (ordem == #crescente#):
+    IF (ordem == "drescente"):
         IF (num1 > num2):
             temp -> num1;
             num1 -> num2;
@@ -17,7 +17,7 @@ FUNCTION ordenarNumeros(num1, num2, num3, ordem) void:
             num2 -> temp;
         END
     END
-    ELSEIF (ordem == #decrescente#):
+    ELSEIF (ordem == "decrescente"):
         IF (num1 < num2):
             temp -> num1;
             num1 -> num2;
@@ -67,10 +67,10 @@ FUNCTION MAIN() int:
 
 
     IF(ordemNum == 1):
-        ordem -> #crescente#;
+        ordem -> "crescente";
     END
     ELSEIF(ordemNum == 2):
-        ordem -> #decrescente#;
+        ordem -> "decrescente";
     END
 
 

@@ -1,45 +1,45 @@
 --Obter o nome do mês do calendário palauano de acordo com o número--
-FUNCTION obterMes(int mes) string:
-   string nomeMes;
+FUNCTION obterMes(int mes) str:
+   str nomeMes;
 
    IF (mes == 1):
-       nomeMes -> #Dil#;
+       nomeMes -> "Dil";
    END
    ELSEIF (mes == 2):
-       nomeMes -> #Tteel#;
+       nomeMes -> "Tteel";
    END
    ELSEIF (mes == 3):
-       nomeMes -> #Maltel#;
+       nomeMes -> "Maltel";
    END
    ELSEIF (mes == 4):
-       nomeMes -> #Beluuch#;
+       nomeMes -> "Beluuch";
    END
    ELSEIF (mes == 5):
-       nomeMes -> #Omlebukel#;
+       nomeMes -> "Omlebukel";
    END
    ELSEIF (mes == 6):
-       nomeMes -> #Mekedengel#;
+       nomeMes -> "Mekedengel";
    END
    ELSEIF (mes == 7):
-       nomeMes -> #Dungulbeluu#;
+       nomeMes -> "Dungulbeluu";
    END
    ELSEIF (mes == 8):
-       nomeMes -> #Bais#;
+       nomeMes -> "Bais";
    END
    ELSEIF (mes == 9):
-       nomeMes -> #Rechuodel#;
+       nomeMes -> "Rechuodel";
    END
    ELSEIF (mes == 10):
-       nomeMes -> #Nguchebelau#;
+       nomeMes -> "Nguchebelau";
    END
    ELSEIF (mes == 11):
-       nomeMes -> #Ngasech#;
+       nomeMes -> "Ngasech";
    END
    ELSEIF (mes == 12):
-       nomeMes -> #Rerengebukel#;
+       nomeMes -> "Rerengebukel";
    END
    ELSE:
-       nomeMes -> #Mes Invalido#;
+       nomeMes -> "Mes Invalido";
    END
   
    RETURN nomeMes;
@@ -54,7 +54,8 @@ FUNCTION MAIN() int:
    READ:: mes;
 
 
-   string nomeMes -> FUNCTION obterMes(mes);
+   str nomeMes; 
+   nomeMes -> FUNCTION obterMes(int mes);
    WRITE:: "O mes ", mes, " e ", nomeMes;
 
 
