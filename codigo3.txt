@@ -56,7 +56,7 @@ FUNCTION MAIN() int:
 
    str nomeMes; 
    nomeMes -> FUNCTION obterMes(int mes);
-   WRITE:: "O mes ", mes, " e ", nomeMes;
+   WRITE:: "O mes " mes " e " nomeMes;
 
 
    RETURN 0; 

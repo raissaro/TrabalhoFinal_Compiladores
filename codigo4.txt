@@ -1,6 +1,6 @@
 -- 3 números em ordem --
-FUNCTION ordenarNumeros(num1, num2, num3, ordem) void:
-    IF (ordem == "drescente"):
+FUNCTION ordenarNumeros(int num1, int num2, int num3, str ordem) void:
+    IF (ordem == "descrecente"):
         IF (num1 > num2):
             temp -> num1;
             num1 -> num2;
@@ -36,7 +36,7 @@ FUNCTION ordenarNumeros(num1, num2, num3, ordem) void:
     END
 
 
-    WRITE::"Os numeros em ordem", ordem, "sao:", num1," " ,num2," ", num3;
+    WRITE::"Os numeros em ordem" ordem "sao:" num1" " num2" ", num3;
 
 
 END
@@ -74,7 +74,7 @@ FUNCTION MAIN() int:
     END
 
 
-    ordenarNumeros(num1, num2, num3, ordem);
+    ordenarNumeros(int num1, int num2, int num3, str ordem);
 
 
     RETURN 0;

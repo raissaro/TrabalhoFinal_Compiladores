@@ -1,0 +1,138 @@
+2023-06-22 16:12:59:312 grammar LogManager.java:25 before: (COMBINED_GRAMMAR MinhaGramatica (RULES (RULE inicio (BLOCK (ALT (? (BLOCK (ALT atribuicao))) (+ (BLOCK (ALT function)))))) (RULE expressao (BLOCK (ALT (BLOCK (ALT NUM) (ALT ID)) (+ (BLOCK (ALT OP_ARIT (BLOCK (ALT NUM) (ALT ID)))))) (ALT expressao_logica) (ALT ABRE_P expressao FECHA_P) (ALT chamada_funcao))) (RULE chamada_funcao (BLOCK (ALT FUNCTION ID ABRE_P TIPO ID (* (BLOCK (ALT VIRGULA TIPO ID))) FECHA_P))) (RULE expressao_logica (BLOCK (ALT ID (+ (BLOCK (ALT OP_LOG ID)))) (ALT NUM (+ (BLOCK (ALT OP_LOG NUM)))) (ALT ID (+ (BLOCK (ALT OP_LOG NUM)))) (ALT NUM (+ (BLOCK (ALT OP_LOG ID)))) (ALT NUM (+ (BLOCK (ALT OP_ARIT NUM)))) (ALT ID (+ (BLOCK (ALT OP_ARIT ID)))) (ALT ID (+ (BLOCK (ALT (BLOCK (ALT OP_ARIT) (ALT OP_LOG)) NUM)))) (ALT NUM (+ (BLOCK (ALT OP_ARIT ID)))))) (RULE declaracao (BLOCK (ALT TIPO ID PTV))) (RULE define (BLOCK (ALT DEFINE ID ATRIB NUM PTV))) (RULE function (BLOCK (ALT FUNCTION ID ABRE_P (? (BLOCK (ALT TIPO ID (* (BLOCK (ALT VIRGULA TIPO ID)))))) FECHA_P TIPO DOIS_PT (* (BLOCK (ALT bloco))) END) (ALT FUNCTION MAIN ABRE_P (? (BLOCK (ALT TIPO ID (* (BLOCK (ALT VIRGULA TIPO ID)))))) FECHA_P TIPO DOIS_PT (* (BLOCK (ALT bloco))) END))) (RULE atribuicao (BLOCK (ALT ID ATRIB (+ (BLOCK (ALT expressao))) PTV) (ALT ID ATRIB ID PTV) (ALT ID ATRIB NUM PTV) (ALT ID ATRIB TEXTO PTV))) (RULE write (BLOCK (ALT WRITE QUAT_PT (+ (BLOCK (ALT TEXTO) (ALT NUM) (ALT ID))) PTV))) (RULE read (BLOCK (ALT READ QUAT_PT ID PTV))) (RULE t_if (BLOCK (ALT IF ABRE_P expressao_logica FECHA_P DOIS_PT (+ (BLOCK (ALT bloco))) END))) (RULE t_else (BLOCK (ALT ELSE DOIS_PT (+ (BLOCK (ALT bloco))) END))) (RULE t_elseif (BLOCK (ALT ELSEIF ABRE_P expressao_logica FECHA_P DOIS_PT (+ (BLOCK (ALT bloco))) END))) (RULE t_for (BLOCK (ALT FOR ABRE_P TIPO ID ATRIB NUM PTV ID OP_LOG NUM PTV ID OP_ARIT OP_ARIT FECHA_P DOIS_PT (+ (BLOCK (ALT bloco))) END) (ALT FOR ABRE_P TIPO ID ATRIB NUM PTV ID OP_LOG ID PTV ID OP_ARIT OP_ARIT FECHA_P DOIS_PT (+ (BLOCK (ALT bloco))) END))) (RULE t_while (BLOCK (ALT WHILE ABRE_P expressao_logica FECHA_P DOIS_PT (+ (BLOCK (ALT bloco))) END))) (RULE t_return (BLOCK (ALT RETURN expressao PTV) (ALT RETURN NUM PTV) (ALT RETURN TEXTO PTV) (ALT RETURN ID PTV) (ALT RETURN TRUE PTV) (ALT RETURN FALSE PTV) (ALT RETURN PTV))) (RULE bloco (BLOCK (ALT write) (ALT read) (ALT t_if) (ALT t_else) (ALT t_elseif) (ALT declaracao) (ALT atribuicao) (ALT t_for) (ALT t_while) (ALT t_return) (ALT chamada_funcao PTV))) (RULE TIPO (BLOCK (ALT 'int') (ALT 'float') (ALT 'str') (ALT 'bool') (ALT 'void'))) (RULE ATRIB (BLOCK (ALT '->'))) (RULE QUAT_PT (BLOCK (ALT '::'))) (RULE DOIS_PT (BLOCK (ALT ':'))) (RULE END (BLOCK (ALT 'END'))) (RULE PTV (BLOCK (ALT ';'))) (RULE ABRE_P (BLOCK (ALT '('))) (RULE FECHA_P (BLOCK (ALT ')'))) (RULE READ (BLOCK (ALT 'READ'))) (RULE WRITE (BLOCK (ALT 'WRITE'))) (RULE FUNCTION (BLOCK (ALT 'FUNCTION'))) (RULE IF (BLOCK (ALT 'IF'))) (RULE ELSE (BLOCK (ALT 'ELSE'))) (RULE ELSEIF (BLOCK (ALT 'ELSEIF'))) (RULE FOR (BLOCK (ALT 'FOR'))) (RULE WHILE (BLOCK (ALT 'WHILE'))) (RULE RETURN (BLOCK (ALT 'RETURN'))) (RULE DEFINE (BLOCK (ALT 'DEFINE'))) (RULE VIRGULA (BLOCK (ALT ','))) (RULE FALSE (BLOCK (ALT 'FALSE'))) (RULE TRUE (BLOCK (ALT 'TRUE'))) (RULE HASHTAG (BLOCK (ALT '#'))) (RULE MAIN (BLOCK (ALT 'MAIN'))) (RULE OP_ARIT (BLOCK (ALT '+') (ALT '-') (ALT '*') (ALT '/') (ALT '^') (ALT '%'))) (RULE OP_LOG (BLOCK (ALT '>') (ALT '<') (ALT '>=') (ALT '<=') (ALT '==') (ALT '!='))) (RULE ID (BLOCK (ALT LETRA (* (BLOCK (ALT DIGITO) (ALT LETRA)))))) (RULE NUM (BLOCK (ALT (+ (BLOCK (ALT DIGITO))) (? (BLOCK (ALT '.' (+ (BLOCK (ALT DIGITO))))))))) (RULE TEXTO (BLOCK (ALT '"' (* (BLOCK (ALT .))) '"'))) (RULE LETRA (RULEMODIFIERS fragment) (BLOCK (ALT [a-zA-Z]))) (RULE DIGITO (RULEMODIFIERS fragment) (BLOCK (ALT [0-9]))) (RULE OUTRO (RULEMODIFIERS fragment) (BLOCK (ALT [\u0021-\u0026\u0028-\u005B\u005D-\uFFFF]))) (RULE WS (BLOCK (LEXER_ALT_ACTION (ALT (+ (BLOCK (ALT [ \r\t\n])))) skip))) (RULE COMMENT (BLOCK (LEXER_ALT_ACTION (ALT '--' (* (BLOCK (ALT .))) '--') skip))) (RULE Error (BLOCK (ALT .)))))
+2023-06-22 16:12:59:337 grammar LogManager.java:25 after: (COMBINED_GRAMMAR MinhaGramatica (RULES (RULE inicio (BLOCK (ALT (? (BLOCK (ALT atribuicao))) (+ (BLOCK (ALT function)))))) (RULE expressao (BLOCK (ALT (SET NUM ID) (+ (BLOCK (ALT OP_ARIT (SET NUM ID))))) (ALT expressao_logica) (ALT ABRE_P expressao FECHA_P) (ALT chamada_funcao))) (RULE chamada_funcao (BLOCK (ALT FUNCTION ID ABRE_P TIPO ID (* (BLOCK (ALT VIRGULA TIPO ID))) FECHA_P))) (RULE expressao_logica (BLOCK (ALT ID (+ (BLOCK (ALT OP_LOG ID)))) (ALT NUM (+ (BLOCK (ALT OP_LOG NUM)))) (ALT ID (+ (BLOCK (ALT OP_LOG NUM)))) (ALT NUM (+ (BLOCK (ALT OP_LOG ID)))) (ALT NUM (+ (BLOCK (ALT OP_ARIT NUM)))) (ALT ID (+ (BLOCK (ALT OP_ARIT ID)))) (ALT ID (+ (BLOCK (ALT (SET OP_ARIT OP_LOG) NUM)))) (ALT NUM (+ (BLOCK (ALT OP_ARIT ID)))))) (RULE declaracao (BLOCK (ALT TIPO ID PTV))) (RULE define (BLOCK (ALT DEFINE ID ATRIB NUM PTV))) (RULE function (BLOCK (ALT FUNCTION ID ABRE_P (? (BLOCK (ALT TIPO ID (* (BLOCK (ALT VIRGULA TIPO ID)))))) FECHA_P TIPO DOIS_PT (* (BLOCK (ALT bloco))) END) (ALT FUNCTION MAIN ABRE_P (? (BLOCK (ALT TIPO ID (* (BLOCK (ALT VIRGULA TIPO ID)))))) FECHA_P TIPO DOIS_PT (* (BLOCK (ALT bloco))) END))) (RULE atribuicao (BLOCK (ALT ID ATRIB (+ (BLOCK (ALT expressao))) PTV) (ALT ID ATRIB ID PTV) (ALT ID ATRIB NUM PTV) (ALT ID ATRIB TEXTO PTV))) (RULE write (BLOCK (ALT WRITE QUAT_PT (+ (BLOCK (ALT (SET TEXTO NUM ID)))) PTV))) (RULE read (BLOCK (ALT READ QUAT_PT ID PTV))) (RULE t_if (BLOCK (ALT IF ABRE_P expressao_logica FECHA_P DOIS_PT (+ (BLOCK (ALT bloco))) END))) (RULE t_else (BLOCK (ALT ELSE DOIS_PT (+ (BLOCK (ALT bloco))) END))) (RULE t_elseif (BLOCK (ALT ELSEIF ABRE_P expressao_logica FECHA_P DOIS_PT (+ (BLOCK (ALT bloco))) END))) (RULE t_for (BLOCK (ALT FOR ABRE_P TIPO ID ATRIB NUM PTV ID OP_LOG NUM PTV ID OP_ARIT OP_ARIT FECHA_P DOIS_PT (+ (BLOCK (ALT bloco))) END) (ALT FOR ABRE_P TIPO ID ATRIB NUM PTV ID OP_LOG ID PTV ID OP_ARIT OP_ARIT FECHA_P DOIS_PT (+ (BLOCK (ALT bloco))) END))) (RULE t_while (BLOCK (ALT WHILE ABRE_P expressao_logica FECHA_P DOIS_PT (+ (BLOCK (ALT bloco))) END))) (RULE t_return (BLOCK (ALT RETURN expressao PTV) (ALT RETURN NUM PTV) (ALT RETURN TEXTO PTV) (ALT RETURN ID PTV) (ALT RETURN TRUE PTV) (ALT RETURN FALSE PTV) (ALT RETURN PTV))) (RULE bloco (BLOCK (ALT write) (ALT read) (ALT t_if) (ALT t_else) (ALT t_elseif) (ALT declaracao) (ALT atribuicao) (ALT t_for) (ALT t_while) (ALT t_return) (ALT chamada_funcao PTV))) (RULE TIPO (BLOCK (ALT 'int') (ALT 'float') (ALT 'str') (ALT 'bool') (ALT 'void'))) (RULE ATRIB (BLOCK (ALT '->'))) (RULE QUAT_PT (BLOCK (ALT '::'))) (RULE DOIS_PT (BLOCK (ALT ':'))) (RULE END (BLOCK (ALT 'END'))) (RULE PTV (BLOCK (ALT ';'))) (RULE ABRE_P (BLOCK (ALT '('))) (RULE FECHA_P (BLOCK (ALT ')'))) (RULE READ (BLOCK (ALT 'READ'))) (RULE WRITE (BLOCK (ALT 'WRITE'))) (RULE FUNCTION (BLOCK (ALT 'FUNCTION'))) (RULE IF (BLOCK (ALT 'IF'))) (RULE ELSE (BLOCK (ALT 'ELSE'))) (RULE ELSEIF (BLOCK (ALT 'ELSEIF'))) (RULE FOR (BLOCK (ALT 'FOR'))) (RULE WHILE (BLOCK (ALT 'WHILE'))) (RULE RETURN (BLOCK (ALT 'RETURN'))) (RULE DEFINE (BLOCK (ALT 'DEFINE'))) (RULE VIRGULA (BLOCK (ALT ','))) (RULE FALSE (BLOCK (ALT 'FALSE'))) (RULE TRUE (BLOCK (ALT 'TRUE'))) (RULE HASHTAG (BLOCK (ALT '#'))) (RULE MAIN (BLOCK (ALT 'MAIN'))) (RULE OP_ARIT (BLOCK (ALT (SET '+' '-' '*' '/' '^' '%')))) (RULE OP_LOG (BLOCK (ALT '>') (ALT '<') (ALT '>=') (ALT '<=') (ALT '==') (ALT '!='))) (RULE ID (BLOCK (ALT LETRA (* (BLOCK (ALT DIGITO) (ALT LETRA)))))) (RULE NUM (BLOCK (ALT (+ (BLOCK (ALT DIGITO))) (? (BLOCK (ALT '.' (+ (BLOCK (ALT DIGITO))))))))) (RULE TEXTO (BLOCK (ALT '"' (* (BLOCK (ALT .))) '"'))) (RULE LETRA (RULEMODIFIERS fragment) (BLOCK (ALT [a-zA-Z]))) (RULE DIGITO (RULEMODIFIERS fragment) (BLOCK (ALT [0-9]))) (RULE OUTRO (RULEMODIFIERS fragment) (BLOCK (ALT [\u0021-\u0026\u0028-\u005B\u005D-\uFFFF]))) (RULE WS (BLOCK (LEXER_ALT_ACTION (ALT (+ (BLOCK (ALT [ \r\t\n])))) skip))) (RULE COMMENT (BLOCK (LEXER_ALT_ACTION (ALT '--' (* (BLOCK (ALT .))) '--') skip))) (RULE Error (BLOCK (ALT .)))))
+2023-06-22 16:12:59:363 grammar LogManager.java:25 after extract implicit lexer =(COMBINED_GRAMMAR MinhaGramatica (RULES (RULE inicio (BLOCK (ALT (? (BLOCK (ALT atribuicao))) (+ (BLOCK (ALT function)))))) (RULE expressao (BLOCK (ALT (SET NUM ID) (+ (BLOCK (ALT OP_ARIT (SET NUM ID))))) (ALT expressao_logica) (ALT ABRE_P expressao FECHA_P) (ALT chamada_funcao))) (RULE chamada_funcao (BLOCK (ALT FUNCTION ID ABRE_P TIPO ID (* (BLOCK (ALT VIRGULA TIPO ID))) FECHA_P))) (RULE expressao_logica (BLOCK (ALT ID (+ (BLOCK (ALT OP_LOG ID)))) (ALT NUM (+ (BLOCK (ALT OP_LOG NUM)))) (ALT ID (+ (BLOCK (ALT OP_LOG NUM)))) (ALT NUM (+ (BLOCK (ALT OP_LOG ID)))) (ALT NUM (+ (BLOCK (ALT OP_ARIT NUM)))) (ALT ID (+ (BLOCK (ALT OP_ARIT ID)))) (ALT ID (+ (BLOCK (ALT (SET OP_ARIT OP_LOG) NUM)))) (ALT NUM (+ (BLOCK (ALT OP_ARIT ID)))))) (RULE declaracao (BLOCK (ALT TIPO ID PTV))) (RULE define (BLOCK (ALT DEFINE ID ATRIB NUM PTV))) (RULE function (BLOCK (ALT FUNCTION ID ABRE_P (? (BLOCK (ALT TIPO ID (* (BLOCK (ALT VIRGULA TIPO ID)))))) FECHA_P TIPO DOIS_PT (* (BLOCK (ALT bloco))) END) (ALT FUNCTION MAIN ABRE_P (? (BLOCK (ALT TIPO ID (* (BLOCK (ALT VIRGULA TIPO ID)))))) FECHA_P TIPO DOIS_PT (* (BLOCK (ALT bloco))) END))) (RULE atribuicao (BLOCK (ALT ID ATRIB (+ (BLOCK (ALT expressao))) PTV) (ALT ID ATRIB ID PTV) (ALT ID ATRIB NUM PTV) (ALT ID ATRIB TEXTO PTV))) (RULE write (BLOCK (ALT WRITE QUAT_PT (+ (BLOCK (ALT (SET TEXTO NUM ID)))) PTV))) (RULE read (BLOCK (ALT READ QUAT_PT ID PTV))) (RULE t_if (BLOCK (ALT IF ABRE_P expressao_logica FECHA_P DOIS_PT (+ (BLOCK (ALT bloco))) END))) (RULE t_else (BLOCK (ALT ELSE DOIS_PT (+ (BLOCK (ALT bloco))) END))) (RULE t_elseif (BLOCK (ALT ELSEIF ABRE_P expressao_logica FECHA_P DOIS_PT (+ (BLOCK (ALT bloco))) END))) (RULE t_for (BLOCK (ALT FOR ABRE_P TIPO ID ATRIB NUM PTV ID OP_LOG NUM PTV ID OP_ARIT OP_ARIT FECHA_P DOIS_PT (+ (BLOCK (ALT bloco))) END) (ALT FOR ABRE_P TIPO ID ATRIB NUM PTV ID OP_LOG ID PTV ID OP_ARIT OP_ARIT FECHA_P DOIS_PT (+ (BLOCK (ALT bloco))) END))) (RULE t_while (BLOCK (ALT WHILE ABRE_P expressao_logica FECHA_P DOIS_PT (+ (BLOCK (ALT bloco))) END))) (RULE t_return (BLOCK (ALT RETURN expressao PTV) (ALT RETURN NUM PTV) (ALT RETURN TEXTO PTV) (ALT RETURN ID PTV) (ALT RETURN TRUE PTV) (ALT RETURN FALSE PTV) (ALT RETURN PTV))) (RULE bloco (BLOCK (ALT write) (ALT read) (ALT t_if) (ALT t_else) (ALT t_elseif) (ALT declaracao) (ALT atribuicao) (ALT t_for) (ALT t_while) (ALT t_return) (ALT chamada_funcao PTV)))))
+2023-06-22 16:12:59:363 grammar LogManager.java:25 lexer =(LEXER_GRAMMAR MinhaGramaticaLexer (RULES (RULE TIPO (BLOCK (ALT 'int') (ALT 'float') (ALT 'str') (ALT 'bool') (ALT 'void'))) (RULE ATRIB (BLOCK (ALT '->'))) (RULE QUAT_PT (BLOCK (ALT '::'))) (RULE DOIS_PT (BLOCK (ALT ':'))) (RULE END (BLOCK (ALT 'END'))) (RULE PTV (BLOCK (ALT ';'))) (RULE ABRE_P (BLOCK (ALT '('))) (RULE FECHA_P (BLOCK (ALT ')'))) (RULE READ (BLOCK (ALT 'READ'))) (RULE WRITE (BLOCK (ALT 'WRITE'))) (RULE FUNCTION (BLOCK (ALT 'FUNCTION'))) (RULE IF (BLOCK (ALT 'IF'))) (RULE ELSE (BLOCK (ALT 'ELSE'))) (RULE ELSEIF (BLOCK (ALT 'ELSEIF'))) (RULE FOR (BLOCK (ALT 'FOR'))) (RULE WHILE (BLOCK (ALT 'WHILE'))) (RULE RETURN (BLOCK (ALT 'RETURN'))) (RULE DEFINE (BLOCK (ALT 'DEFINE'))) (RULE VIRGULA (BLOCK (ALT ','))) (RULE FALSE (BLOCK (ALT 'FALSE'))) (RULE TRUE (BLOCK (ALT 'TRUE'))) (RULE HASHTAG (BLOCK (ALT '#'))) (RULE MAIN (BLOCK (ALT 'MAIN'))) (RULE OP_ARIT (BLOCK (ALT (SET '+' '-' '*' '/' '^' '%')))) (RULE OP_LOG (BLOCK (ALT '>') (ALT '<') (ALT '>=') (ALT '<=') (ALT '==') (ALT '!='))) (RULE ID (BLOCK (ALT LETRA (* (BLOCK (ALT DIGITO) (ALT LETRA)))))) (RULE NUM (BLOCK (ALT (+ (BLOCK (ALT DIGITO))) (? (BLOCK (ALT '.' (+ (BLOCK (ALT DIGITO))))))))) (RULE TEXTO (BLOCK (ALT '"' (* (BLOCK (ALT .))) '"'))) (RULE LETRA (RULEMODIFIERS fragment) (BLOCK (ALT [a-zA-Z]))) (RULE DIGITO (RULEMODIFIERS fragment) (BLOCK (ALT [0-9]))) (RULE OUTRO (RULEMODIFIERS fragment) (BLOCK (ALT [\u0021-\u0026\u0028-\u005B\u005D-\uFFFF]))) (RULE WS (BLOCK (LEXER_ALT_ACTION (ALT (+ (BLOCK (ALT [ \r\t\n])))) skip))) (RULE COMMENT (BLOCK (LEXER_ALT_ACTION (ALT '--' (* (BLOCK (ALT .))) '--') skip))) (RULE Error (BLOCK (ALT .)))))
+2023-06-22 16:12:59:580 semantics LogManager.java:25 tokens={EOF=-1, TIPO=1, ATRIB=2, QUAT_PT=3, DOIS_PT=4, END=5, PTV=6, ABRE_P=7, FECHA_P=8, READ=9, WRITE=10, FUNCTION=11, IF=12, ELSE=13, ELSEIF=14, FOR=15, WHILE=16, RETURN=17, DEFINE=18, VIRGULA=19, FALSE=20, TRUE=21, HASHTAG=22, MAIN=23, OP_ARIT=24, OP_LOG=25, ID=26, NUM=27, TEXTO=28, WS=29, COMMENT=30, Error=31}
+2023-06-22 16:12:59:580 semantics LogManager.java:25 strings={'->'=2, '::'=3, ':'=4, 'END'=5, ';'=6, '('=7, ')'=8, 'READ'=9, 'WRITE'=10, 'FUNCTION'=11, 'IF'=12, 'ELSE'=13, 'ELSEIF'=14, 'FOR'=15, 'WHILE'=16, 'RETURN'=17, 'DEFINE'=18, ','=19, 'FALSE'=20, 'TRUE'=21, '#'=22, 'MAIN'=23}
+2023-06-22 16:12:59:593 LL1 LogManager.java:25 
+DECISION 0 in rule inicio
+2023-06-22 16:12:59:594 LL1 LogManager.java:25 look=[26, 11]
+2023-06-22 16:12:59:594 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:594 LL1 LogManager.java:25 
+DECISION 1 in rule inicio
+2023-06-22 16:12:59:594 LL1 LogManager.java:25 look=[11, <EOF>]
+2023-06-22 16:12:59:594 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:594 LL1 LogManager.java:25 
+DECISION 2 in rule expressao
+2023-06-22 16:12:59:594 LL1 LogManager.java:25 look=[24, {6..8, 11, 26..27}]
+2023-06-22 16:12:59:594 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:594 LL1 LogManager.java:25 
+DECISION 3 in rule expressao
+2023-06-22 16:12:59:594 LL1 LogManager.java:25 look=[{26..27}, {26..27}, 7, 11]
+2023-06-22 16:12:59:594 LL1 LogManager.java:25 LL(1)? false
+2023-06-22 16:12:59:594 LL1 LogManager.java:25 
+DECISION 4 in rule chamada_funcao
+2023-06-22 16:12:59:594 LL1 LogManager.java:25 look=[19, 8]
+2023-06-22 16:12:59:594 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:594 LL1 LogManager.java:25 
+DECISION 5 in rule expressao_logica
+2023-06-22 16:12:59:594 LL1 LogManager.java:25 look=[25, {6..8, 11, 26..27}]
+2023-06-22 16:12:59:594 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:594 LL1 LogManager.java:25 
+DECISION 6 in rule expressao_logica
+2023-06-22 16:12:59:595 LL1 LogManager.java:25 look=[25, {6..8, 11, 26..27}]
+2023-06-22 16:12:59:595 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:595 LL1 LogManager.java:25 
+DECISION 7 in rule expressao_logica
+2023-06-22 16:12:59:595 LL1 LogManager.java:25 look=[25, {6..8, 11, 26..27}]
+2023-06-22 16:12:59:595 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:595 LL1 LogManager.java:25 
+DECISION 8 in rule expressao_logica
+2023-06-22 16:12:59:595 LL1 LogManager.java:25 look=[25, {6..8, 11, 26..27}]
+2023-06-22 16:12:59:595 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:595 LL1 LogManager.java:25 
+DECISION 9 in rule expressao_logica
+2023-06-22 16:12:59:595 LL1 LogManager.java:25 look=[24, {6..8, 11, 26..27}]
+2023-06-22 16:12:59:595 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:595 LL1 LogManager.java:25 
+DECISION 10 in rule expressao_logica
+2023-06-22 16:12:59:595 LL1 LogManager.java:25 look=[24, {6..8, 11, 26..27}]
+2023-06-22 16:12:59:595 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:595 LL1 LogManager.java:25 
+DECISION 11 in rule expressao_logica
+2023-06-22 16:12:59:595 LL1 LogManager.java:25 look=[{24..25}, {6..8, 11, 26..27}]
+2023-06-22 16:12:59:595 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:595 LL1 LogManager.java:25 
+DECISION 12 in rule expressao_logica
+2023-06-22 16:12:59:595 LL1 LogManager.java:25 look=[24, {6..8, 11, 26..27}]
+2023-06-22 16:12:59:595 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:595 LL1 LogManager.java:25 
+DECISION 13 in rule expressao_logica
+2023-06-22 16:12:59:595 LL1 LogManager.java:25 look=[26, 27, 26, 27, 27, 26, 26, 27]
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 LL(1)? false
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 
+DECISION 14 in rule function
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 look=[19, 8]
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 
+DECISION 15 in rule function
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 look=[1, 8]
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 
+DECISION 16 in rule function
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 look=[{1, 9..17, 26}, 5]
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 
+DECISION 17 in rule function
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 look=[19, 8]
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 
+DECISION 18 in rule function
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 look=[1, 8]
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 
+DECISION 19 in rule function
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 look=[{1, 9..17, 26}, 5]
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 
+DECISION 20 in rule function
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 look=[11, 11]
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 LL(1)? false
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 
+DECISION 21 in rule atribuicao
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 look=[{7, 11, 26..27}, 6]
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 
+DECISION 22 in rule atribuicao
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 look=[26, 26, 26, 26]
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 LL(1)? false
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 
+DECISION 23 in rule write
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 look=[{26..28}, 6]
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 
+DECISION 24 in rule t_if
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 look=[{1, 9..17, 26}, 5]
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:596 LL1 LogManager.java:25 
+DECISION 25 in rule t_else
+2023-06-22 16:12:59:597 LL1 LogManager.java:25 look=[{1, 9..17, 26}, 5]
+2023-06-22 16:12:59:597 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:597 LL1 LogManager.java:25 
+DECISION 26 in rule t_elseif
+2023-06-22 16:12:59:597 LL1 LogManager.java:25 look=[{1, 9..17, 26}, 5]
+2023-06-22 16:12:59:597 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:597 LL1 LogManager.java:25 
+DECISION 27 in rule t_for
+2023-06-22 16:12:59:597 LL1 LogManager.java:25 look=[{1, 9..17, 26}, 5]
+2023-06-22 16:12:59:597 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:597 LL1 LogManager.java:25 
+DECISION 28 in rule t_for
+2023-06-22 16:12:59:597 LL1 LogManager.java:25 look=[{1, 9..17, 26}, 5]
+2023-06-22 16:12:59:597 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:597 LL1 LogManager.java:25 
+DECISION 29 in rule t_for
+2023-06-22 16:12:59:597 LL1 LogManager.java:25 look=[15, 15]
+2023-06-22 16:12:59:597 LL1 LogManager.java:25 LL(1)? false
+2023-06-22 16:12:59:597 LL1 LogManager.java:25 
+DECISION 30 in rule t_while
+2023-06-22 16:12:59:597 LL1 LogManager.java:25 look=[{1, 9..17, 26}, 5]
+2023-06-22 16:12:59:597 LL1 LogManager.java:25 LL(1)? true
+2023-06-22 16:12:59:597 LL1 LogManager.java:25 
+DECISION 31 in rule t_return
+2023-06-22 16:12:59:597 LL1 LogManager.java:25 look=[17, 17, 17, 17, 17, 17, 17]
+2023-06-22 16:12:59:597 LL1 LogManager.java:25 LL(1)? false
+2023-06-22 16:12:59:597 LL1 LogManager.java:25 
+DECISION 32 in rule bloco
+2023-06-22 16:12:59:597 LL1 LogManager.java:25 look=[10, 9, 12, 13, 14, 1, 26, 15, 16, 17, 11]
+2023-06-22 16:12:59:597 LL1 LogManager.java:25 LL(1)? true

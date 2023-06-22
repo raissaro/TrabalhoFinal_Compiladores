@@ -1,0 +1,22 @@
+FUNCTION fatorial(int n) int:
+    IF(n <= 1):
+        RETURN 1;
+    END
+    ELSE:
+        int aux;
+        int aux2;
+        aux2 -> n - 1;
+        aux -> FUNCTION fatorial(int aux2);
+        RETURN n * aux;
+    END
+END
+
+FUNCTION MAIN() int:
+    WRITE:: "Digite um numero: ";
+    int num;
+    READ:: num;
+    int result;
+    result -> FUNCTION fatorial(int num); 
+    WRITE:: "O fatorial do numero e: " result;
+
+END

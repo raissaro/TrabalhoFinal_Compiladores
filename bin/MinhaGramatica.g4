@@ -1,11 +1,11 @@
 grammar MinhaGramatica;
 
 inicio: (atribuicao)? (function)+;
-expressao: NUM (OP_ARIT NUM)+
+expressao: (NUM|ID) (OP_ARIT (NUM|ID))+
          | expressao_logica
          | ABRE_P expressao FECHA_P
          | chamada_funcao;
-chamada_funcao: FUNCTION ID ABRE_P TIPO ID (VIRGULA TIPO ID)* FECHA_P PTV;
+chamada_funcao: FUNCTION ID ABRE_P TIPO ID (VIRGULA TIPO ID)* FECHA_P;
 expressao_logica: ID (OP_LOG ID)+
                 | NUM (OP_LOG NUM)+
                 | ID (OP_LOG NUM)+
@@ -22,7 +22,7 @@ atribuicao: ID ATRIB (expressao)+ PTV
           | ID ATRIB ID PTV
           | ID ATRIB NUM PTV
           | ID ATRIB TEXTO PTV;
-write: WRITE QUAT_PT TEXTO PTV;
+write: WRITE QUAT_PT (TEXTO|NUM|ID)+ PTV;
 read: READ QUAT_PT ID PTV;
 t_if: IF ABRE_P expressao_logica FECHA_P DOIS_PT (bloco)+ END;
 t_else: ELSE DOIS_PT (bloco)+ END;
@@ -30,7 +30,7 @@ t_elseif: ELSEIF ABRE_P expressao_logica FECHA_P DOIS_PT (bloco)+ END;
 t_for: FOR ABRE_P TIPO ID ATRIB NUM PTV ID OP_LOG NUM PTV ID OP_ARIT OP_ARIT FECHA_P DOIS_PT (bloco)+ END
      |FOR ABRE_P TIPO ID ATRIB NUM PTV ID OP_LOG ID PTV ID OP_ARIT OP_ARIT FECHA_P DOIS_PT (bloco)+ END;
 t_while: WHILE ABRE_P expressao_logica FECHA_P DOIS_PT (bloco)+ END;
-t_return: RETURN (expressao)* PTV
+t_return: RETURN expressao PTV
           |RETURN NUM PTV
           |RETURN TEXTO PTV
           |RETURN ID PTV
@@ -48,7 +48,7 @@ bloco: write
      |t_for
      |t_while
      |t_return
-     |chamada_funcao;
+     |chamada_funcao PTV;
          
 TIPO:'int'|'float'|'str'|'bool'|'void';
 

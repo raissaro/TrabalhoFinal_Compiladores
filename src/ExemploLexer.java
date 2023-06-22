@@ -1,6 +1,4 @@
 import java.io.IOException;
-
-//import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.CharStreams;
@@ -16,14 +14,6 @@ public class ExemploLexer {
             
             ParseTree ast = parser.inicio();
             System.out.println(ast.toStringTree());
-
-            /*while(!lexer._hitEOF){
-                Token token;
-                token = lexer.nextToken();
-                System.out.println("Token: "+ token.toString());
-                System.out.println("    Lexema: " + token.getText());
-                System.out.println("    Classe: " + lexer.getVocabulary().getDisplayName(token.getType()));
-            }*/
 
         }catch(IOException e){
             e.printStackTrace();

@@ -20,7 +20,7 @@ FUNCTION MAIN() int:
     resultadoFibonacci -> fibonacci(num);
 
 
-    WRITE:: "o termo ", num, " da sequencia de Fibonacci e: ", resultadoFibonacci;
+    WRITE:: "o termo " num " da sequencia de Fibonacci e: " resultadoFibonacci;
 
 
     RETURN 0;

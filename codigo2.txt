@@ -12,7 +12,8 @@ END
 int numero 
 WRITE:: "Digite um numero: ";
 READ:: numero;
-bool ehPar -> verificaPar(numero);
+bool ehPar;
+ehPar -> verificaPar(numero);
 
 
 IF(ehPar):
