@@ -4,7 +4,7 @@ grammar MinhaGramatica;
      package src;
 }
 
-inicio: (atribuicao)? (function)+;     EOF #Inicio
+inicio: (atribuicao)? (function)+;     EOF #NInicio
 
 expressao: (NUM|ID) (OP_ARIT (NUM|ID))+
          | expressao_logica
