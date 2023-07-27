@@ -28,7 +28,6 @@ NUM=27
 TEXTO=28
 WS=29
 COMMENT=30
-Error=31
 '->'=2
 '::'=3
 ':'=4

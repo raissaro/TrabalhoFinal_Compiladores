@@ -19,7 +19,7 @@ public class MinhaGramaticaParser extends Parser {
 		TIPO=1, ATRIB=2, QUAT_PT=3, DOIS_PT=4, END=5, PTV=6, ABRE_P=7, FECHA_P=8, 
 		READ=9, WRITE=10, FUNCTION=11, IF=12, ELSE=13, ELSEIF=14, FOR=15, WHILE=16, 
 		RETURN=17, DEFINE=18, VIRGULA=19, FALSE=20, TRUE=21, HASHTAG=22, MAIN=23, 
-		OP_ARIT=24, OP_LOG=25, ID=26, NUM=27, TEXTO=28, WS=29, COMMENT=30, Error=31;
+		OP_ARIT=24, OP_LOG=25, ID=26, NUM=27, TEXTO=28, WS=29, COMMENT=30;
 	public static final int
 		RULE_inicio = 0, RULE_expressao = 1, RULE_chamada_funcao = 2, RULE_expressao_logica = 3, 
 		RULE_declaracao = 4, RULE_define = 5, RULE_function = 6, RULE_atribuicao = 7, 
@@ -47,7 +47,7 @@ public class MinhaGramaticaParser extends Parser {
 			null, "TIPO", "ATRIB", "QUAT_PT", "DOIS_PT", "END", "PTV", "ABRE_P", 
 			"FECHA_P", "READ", "WRITE", "FUNCTION", "IF", "ELSE", "ELSEIF", "FOR", 
 			"WHILE", "RETURN", "DEFINE", "VIRGULA", "FALSE", "TRUE", "HASHTAG", "MAIN", 
-			"OP_ARIT", "OP_LOG", "ID", "NUM", "TEXTO", "WS", "COMMENT", "Error"
+			"OP_ARIT", "OP_LOG", "ID", "NUM", "TEXTO", "WS", "COMMENT"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -1864,7 +1864,7 @@ public class MinhaGramaticaParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3!\u016b\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3 \u016b\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\3\2\5\2&\n\2\3\2\6\2)\n\2\r\2\16\2*\3\3\3\3\3\3\6\3\60\n\3\r\3\16\3\61"+

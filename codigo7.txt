@@ -1,0 +1,3 @@
+FUNCTION funcao(int n) int:
+
+END
